@@ -1,16 +1,25 @@
-# React + Vite
+#  Modern Todo App (Redux + Drag & Drop)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Todo List application built with **React** and **Redux Toolkit**.  
+This project demonstrates state management, theming, and drag-and-drop functionality using `react-beautiful-dnd`.  
+Perfect for showcasing front-end skills and clean UI design.
 
-Currently, two official plugins are available:
+## ✨ Features
+-  Add / Remove / Mark tasks as done  
+-  Drag & Drop to reorder tasks  
+-  Dark & Light theme toggle  
+-  (Coming soon) Search & Filter tasks  
+-  Fully responsive (Mobile + Desktop)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Tech Stack
+- **React 18**
+- **Redux Toolkit**
+- **React Beautiful DnD**
+- **Tailwind3 CSS**
 
-## React Compiler
+##  Getting Started
+Clone the repo and install dependencies:
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+git clone https://github.com/Nikkihosseini/redux-todo-dnd.git
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
