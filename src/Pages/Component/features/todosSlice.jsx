@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const todosSlice = createSlice({
+export const todosSlice = createSlice({
     name: todo,
     initialState: [],
     reducers: {
