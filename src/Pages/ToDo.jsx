@@ -14,9 +14,11 @@ export default function ToDo(){
                              <h1 className='font-bold text-2xl'>To Do List</h1>
                              <span></span>
                         </div>
-                        <div className='flex items-center justify-center'>
-                            <input type="text" name="todo"/>
-                            <span className='flex items-center justify-center material-symbols-outlined backdrop-blur-md h-10 w-10 rounded-md bg-blue-50/10 hover:bg-blue-50/20 cursor-pointer transition-all'>add</span>
+                        <div className='flex items-center justify-center gap-x-2'>
+                            <input className='p-2 outline-none border-none rounded-md bg-blue-50/50 w-60 h-10' type="text" name="todo"/>
+                            <div className='flex items-center justify-center backdrop-blur-md h-10 w-10 rounded-md bg-blue-50/50 hover:bg-blue-50/70 cursor-pointer transition-all'>
+                                <span className='material-symbols-outlined'>add</span>
+                            </div>
                         </div>
                     </div>
 
