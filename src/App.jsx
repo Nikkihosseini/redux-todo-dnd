@@ -1,4 +1,4 @@
-import ToDo from './Pages/ToDo'
+import ToDoApp from './Pages/ToDoApp'
 // import {store} from './Component/store/store'
 // import { Provider } from 'react-redux'
 import './index.css'
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       {/* <Provider store={store}> */}
-        <ToDo/>
+        <ToDoApp/>
       {/* </Provider> */}
     </>
   )
