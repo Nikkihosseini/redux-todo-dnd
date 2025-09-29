@@ -3,11 +3,13 @@ import FilterToDo from '../Component/FilterToDo'
 import { useState } from 'react'
 import {useDispatch , useSelector} from "react-redux"
 import {addToDo , toggleToDo , deleteToDo} from '../Component/features/todosSlice'
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 
 
 export default function ToDoApp(){
 
+    const filter = useSelector((state) => state.filter);
     const todos = useSelector((state) => state.todos);
     const [text, setText] = useState("");
     const dispatch = useDispatch();
@@ -17,6 +19,17 @@ export default function ToDoApp(){
         if (filter === "Active") return !todo.done;
         if (filter === "Completed") return todo.done;
     });
+
+    
+  function handleDragEnd(result) {
+    if (!result.destination) return;
+    dispatch(
+      todosSlice.actions.reorderTodos({
+        sourceIndex: result.source.index,
+        destinationIndex: result.destination.index,
+      })
+    );
+  }
 
     return(
         <>
@@ -43,9 +56,38 @@ export default function ToDoApp(){
                         </div>
                     </div>
 
-                    <div className='flex flex-col items-center justify-center mx-auto gap-2 px-4  my-2'>
+                    <div className='flex flex-col items-center justify-center mx-auto gap-2 px-4 my-2'>
 
-                         
+                    <DragDropContext onDragEnd={handleDragEnd}>
+                        <Droppable droppableId="todoList">
+                            {(provided) => (
+                                <div {...provided.droppableProps} ref={provided.innerRef} className="w-full">
+                                {filteredTodos.map((todo, index) => (
+                                    <Draggable key={todo.id} draggableId={todo.id} index={index}>
+                                    {(provided) => (
+
+                                    <div ref={provided.innerRef}
+                                        {...provided.draggableProps}
+                                        {...provided.dragHandleProps} className="flex items-center justify-between w-full bg-violet-500/10 h-20 px-5 md:px-10 p-4 rounded-3xl text-sky-900 dark:text-slate-400 mb-2">
+
+                                        <div className="flex items-center gap-x-3 h-16">
+                                            <span onClick={() => dispatch(toggleToDo(todos.id))} className="material-symbols-outlined cursor-pointer">
+                                             {!todos.done ? "check_box_outline_blank" : "check_box"}
+                                            </span>
+                                            <p className={`${todo.done ? "line-through" : ""} text-base md:text-lg font-semibold line-clamp-2`}>
+                                                {todo.text}
+                                            </p>
+                                        </div>
+                                         <span onClick={() => dispatch(deleteToDo(todo.id))} className="material-symbols-outlined pl-3 cursor-pointer">delete</span>
+                                    </div>
+                                    )}
+                                    </Draggable>
+                                ))}
+                                    {provided.placeholder}
+                                </div>
+                     )}
+                    </Droppable>
+                </DragDropContext>
                         
                     </div>
 
