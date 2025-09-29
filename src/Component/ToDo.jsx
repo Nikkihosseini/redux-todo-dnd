@@ -11,7 +11,6 @@ export default function ToDo(){
                     </span>
                 <p className="text-base md:text-lg font-semibold line-clamp-2">
                     git commit -m "feat(ui): add rotation animation to theme toggle button rotate toggle icon 360° when switching between dark and light mode use Tailwind transition and rotate-[360deg] for smooth animation reset rotation after animation completes to allow repeated toggles improves visual feedback and UX for theme switching"
-
                 </p>
                 </div>
                 <span className="material-symbols-outlined pl-3 cursor-pointer">delete</span>

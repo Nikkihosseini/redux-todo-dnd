@@ -1,5 +1,6 @@
 import ToggleThemBtn from '../Component/ToggleThemBtn'
 import ToDo from '../Component/ToDo'
+import FilterToDo from '../Component/FilterToDo'
 
 
 export default function ToDoApp(){
@@ -7,6 +8,7 @@ export default function ToDoApp(){
         <>
             <div className='relative w-full h-screen bg-white dark:bg-slate-900'>
                 <ToggleThemBtn/>
+                <FilterToDo/>
                 <div className='absolute bg-sky-50 dark:bg-slate-800 rounded-t-[5rem] w-full min-h-full top-20'>
 
                     <div className='flex items-center justify-between bg-gradient-to-t from-violet-500 to-fuchsia-500 h-20 px-5 md:px-10 rounded-t-[5rem] overflow-hidden text-white'>
