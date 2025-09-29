@@ -1,15 +1,15 @@
 import ToDoApp from './Pages/ToDoApp'
-// import {store} from './Component/store/store'
-// import { Provider } from 'react-redux'
+import {store} from './Component/store/store'
+import { Provider } from 'react-redux'
 import './index.css'
 
 function App() {
  
   return (
     <>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <ToDoApp/>
-      {/* </Provider> */}
+      </Provider>
     </>
   )
 }

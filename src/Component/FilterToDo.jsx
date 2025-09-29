@@ -1,7 +1,12 @@
 import { useState , useEffect , useRef} from "react";
+import { useDispatch , useSelector } from "react-redux";
+import {setFilter} from './features/filterSlice'
 
 
 export default function FilterToDo(){
+
+    const dispatch = useDispatch();
+    const filters = ["All", "Active", "Completed"];
     
     const filterRef = useRef(null);
     const filterBtnRef = useRef(null);
@@ -17,8 +22,9 @@ export default function FilterToDo(){
          if (
             filterRef.current && 
             !filterRef.current.contains(event.target) &&
-            // Added useRef(hamburgerRef) for the hamburger button and excluded it from handleClickOutside
-            // checks. Now clicking the hamburger correctly toggles the mobile menu.
+            // Added useRef(filterBtnRef) for the FilterToDo button and excluded it from handleClickOutside
+            // checks. Now clicking the FilterToDo button
+            // correctly toggles the FilterToDo menu.
             !filterBtnRef.current.contains(event.target)
             ) {
                 setFilterBtn(false);
@@ -42,9 +48,11 @@ export default function FilterToDo(){
 
                 <div ref={filterBtnRef} className={`absolute top-5 left-16 flex items-center justify-center font-semibold text-sky-900 dark:text-slate-400 bg-gradient-to-t from-violet-500/20 to-fuchsia-500/20 h-10 rounded-md gap-x-5 z-10 overflow-hidden transition-transform origin-left ease-in-out duration-300 ${filterBtn ? "scale-x-100 p-2" : "scale-x-0 p-0"}`}>
 
-                    <span className={`${filterBtn ? "opacity-100 delay-150" : "opacity-0 delay-0"} cursor-pointer dark:hover:text-fuchsia-500 hover:text-fuchsia-700 transition-opacity z-0`}>All</span>
-                    <span className={`${filterBtn ? "opacity-100 delay-150" : "opacity-0 delay-0"} cursor-pointer dark:hover:text-fuchsia-500 hover:text-fuchsia-700 transition-opacity z-0`}>Active</span>
-                    <span className={`${filterBtn ? "opacity-100 delay-150" : "opacity-0 delay-0"} cursor-pointer dark:hover:text-fuchsia-500 hover:text-fuchsia-700 transition-opacity z-0`}>Completed</span>
+                    {filters.map((filter) => (
+                        <span key={filter} onClick={()=> dispatch(setFilter(filter))} className={`${filterBtn ? "opacity-100 delay-150" : "opacity-0 delay-0"} cursor-pointer dark:hover:text-fuchsia-500 hover:text-fuchsia-700 transition-opacity z-0`}>
+                            {filter}
+                        </span>
+                    ))}
 
                 </div>
         </>

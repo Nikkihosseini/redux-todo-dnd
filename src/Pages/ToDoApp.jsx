@@ -1,9 +1,23 @@
 import ToggleThemBtn from '../Component/ToggleThemBtn'
-import ToDo from '../Component/ToDo'
 import FilterToDo from '../Component/FilterToDo'
+import { useState } from 'react'
+import {useDispatch , useSelector} from "react-redux"
+import {addToDo , toggleToDo , deleteToDo} from '../Component/features/todosSlice'
+
 
 
 export default function ToDoApp(){
+
+    const todos = useSelector((state) => state.todos);
+    const [text, setText] = useState("");
+    const dispatch = useDispatch();
+
+    const filteredTodos = todos.filter(todo => {
+        if (filter === "All") return true;
+        if (filter === "Active") return !todo.done;
+        if (filter === "Completed") return todo.done;
+    });
+
     return(
         <>
             <div className='relative w-full h-screen bg-white dark:bg-slate-900'>
@@ -17,36 +31,22 @@ export default function ToDoApp(){
                              <span></span>
                         </div>
                         <div className='flex items-center justify-center gap-x-2'>
-                            <input className='p-2 outline-none border-none rounded-md dark:bg-slate-900/30 bg-blue-50/50 w-60 h-10 transition-all' type="text" name="todo"/>
-                            <div className='flex items-center justify-center backdrop-blur-md h-10 w-10 rounded-md bg-blue-50/50 dark:bg-slate-900/30 hover:dark:bg-slate-900/50 hover:bg-blue-50/70 cursor-pointer transition-all'>
+                            <input value={text} onChange={(e) => setText(e.target.value)} placeholder="New task..." className='font-semibold text-lg pb-3 p-2 outline-none border-none rounded-md dark:bg-slate-900/30 bg-blue-50/50 w-60 h-10 transition-all' type="text" name="todo"/>
+                            <div onClick={() => {
+                                if(text.trim()){
+                                    dispatch(addToDo(text))
+                                    setText('')
+                                }
+                            }} className='flex items-center justify-center backdrop-blur-md h-10 w-10 rounded-md bg-blue-50/50 dark:bg-slate-900/30 hover:dark:bg-slate-900/50 hover:bg-blue-50/70 cursor-pointer transition-all'>
                                 <span className='material-symbols-outlined'>add</span>
                             </div>
                         </div>
                     </div>
 
                     <div className='flex flex-col items-center justify-center mx-auto gap-2 px-4  my-2'>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
-                        <ToDo/>
+
+                         
+                        
                     </div>
 
                 </div>
