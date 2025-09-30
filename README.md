@@ -7,6 +7,9 @@ Perfect for showcasing front-end skills and clean UI design.
 ## Quick access:
 https://redux-todo-dnd.netlify.app/
 
+##Snapshot:
+<a href="https://freeimage.host/i/KGs27b2"><img src="https://iili.io/KGs27b2.md.jpg" alt="KGs27b2.md.jpg" border="0"></a>
+
 ## ✨ Features
 -  Add / Remove / Mark tasks as done  
 -  Drag & Drop to reorder tasks  
