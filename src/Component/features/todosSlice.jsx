@@ -7,8 +7,10 @@ export const todosSlice = createSlice({
     reducers: {
 
         addToDo: (state , action) => {
-            state.push({id: Date.now().toString() , text: action.payload , done: false });
-            console.log(state)
+           const newTodo = ({id: Date.now().toString() , text: action.payload , done: false });
+           state.push(newTodo)
+           console.log(newTodo)
+           console.log(newTodo.id)
         },
 
        toggleToDo: (state , action) => {
