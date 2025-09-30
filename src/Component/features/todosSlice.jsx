@@ -15,12 +15,16 @@ export const todosSlice = createSlice({
            console.log(newTodo.id)
         },
 
+        // Toggle todo completion status (done/undone) 
+
        toggleToDo: (state , action) => {
         const todo = state.find(todo => todo.id === action.payload);
         if (todo) {
         todo.done = !todo.done;
         }
        },
+
+        // Todo App Feature Tracking => Delete todo
 
         deleteToDo: (state , action ) => {
            return state.filter(todo => todo.id !== action.payload)

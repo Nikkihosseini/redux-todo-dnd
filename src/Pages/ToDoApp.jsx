@@ -53,6 +53,7 @@ export default function ToDoApp() {
                             className='font-semibold text-lg pb-3 p-2 outline-none border-none rounded-md dark:bg-slate-900/30 bg-blue-50/50 w-full sm:w-52 h-8 md:w-60 md:h-10 transition-all'
                             type="text"
                         />
+                        
                         <div
                             onClick={() => {
                                 if (text.trim()) {
@@ -86,6 +87,9 @@ export default function ToDoApp() {
                                                     className="flex items-center justify-between w-full bg-violet-500/10 h-20 px-5 md:px-10 p-4 rounded-3xl text-sky-900 dark:text-slate-400 mb-2"
                                                 >
                                                     <div className="flex items-center gap-x-3 h-16">
+                                                        
+                                                        {/* Toggle todo completion status (done/undone) */}
+
                                                         <span
                                                             onClick={() => dispatch(toggleToDo(todo.id))}
                                                             className="material-symbols-outlined cursor-pointer transition-all"
