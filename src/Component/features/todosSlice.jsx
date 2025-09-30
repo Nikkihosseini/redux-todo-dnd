@@ -6,6 +6,8 @@ export const todosSlice = createSlice({
     initialState: [],
     reducers: {
 
+        // Todo App Feature Tracking => Add new todos
+
         addToDo: (state , action) => {
            const newTodo = ({id: Date.now().toString() , text: action.payload , done: false });
            state.push(newTodo)
