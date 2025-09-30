@@ -1,3 +1,5 @@
+// Add Search & Filter functionality to Todo List
+
 import { useState , useEffect , useRef} from "react";
 import { useDispatch } from "react-redux";
 import {setFilter} from './features/filterSlice'
