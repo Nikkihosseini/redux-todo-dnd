@@ -4,6 +4,9 @@ A modern and responsive Todo List application built with **React** and **Redux T
 This project demonstrates state management, theming, and drag-and-drop functionality using `react-beautiful-dnd`.  
 Perfect for showcasing front-end skills and clean UI design.
 
+## Quick access:
+https://redux-todo-dnd.netlify.app/
+
 ## ✨ Features
 -  Add / Remove / Mark tasks as done  
 -  Drag & Drop to reorder tasks  
