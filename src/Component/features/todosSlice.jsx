@@ -11,10 +11,12 @@ export const todosSlice = createSlice({
             console.log(state)
         },
 
-        toggleToDo: (state , action) => {
-            const todo = state.find(todo => todo.id === action.payload)
-            todo ? !todo.done : todo.done
-        },
+       toggleToDo: (state , action) => {
+        const todo = state.find(todo => todo.id === action.payload);
+        if (todo) {
+        todo.done = !todo.done;
+        }
+       },
 
         deleteToDo: (state , action ) => {
            return state.filter(todo => todo.id !== action.payload)
