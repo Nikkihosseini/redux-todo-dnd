@@ -36,6 +36,9 @@ export default function ToDoApp() {
                     <div>
                         <h1 className='hidden sm:inline-block font-bold text-xl md:text-2xl'>To Do List</h1>
                     </div>
+
+                    {/* Todo App Feature Tracking => Add new todos */}
+
                     <div className='flex items-center justify-center gap-x-2 w-full sm:w-auto'>
                         <input
                             onKeyDown={(e) => {
