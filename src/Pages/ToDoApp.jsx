@@ -38,6 +38,12 @@ export default function ToDoApp() {
                     </div>
                     <div className='flex items-center justify-center gap-x-2'>
                         <input
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" && text.trim()) {
+                                dispatch(addToDo(text));
+                                setText("");
+                                }
+                            }}
                             value={text}
                             onChange={(e) => setText(e.target.value)}
                             placeholder="New task..."
