@@ -30,6 +30,8 @@ export const todosSlice = createSlice({
            return state.filter(todo => todo.id !== action.payload)
         },
 
+        // Todo App Feature Tracking => Drag & Drop reordering
+
         reorderTodos: (state, action) => {
             const { sourceIndex, destinationIndex } = action.payload;
             const [moved] = state.splice(sourceIndex, 1);

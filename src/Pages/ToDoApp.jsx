@@ -3,6 +3,8 @@ import FilterToDo from '../Component/FilterToDo'
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { addToDo, toggleToDo, deleteToDo, reorderTodos } from '../Component/features/todosSlice'
+
+// Todo App Feature Tracking => Drag & Drop reordering
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 export default function ToDoApp() {
@@ -69,6 +71,9 @@ export default function ToDoApp() {
                 </div>
 
                 <div className='flex flex-col items-center justify-center mx-auto gap-2 px-4 my-2'>
+
+                    {/* Todo App Feature Tracking => Drag & Drop reordering */}
+
                     <DragDropContext onDragEnd={handleDragEnd}>
                         <Droppable droppableId="todoList">
                             {(provided) => (
@@ -87,7 +92,7 @@ export default function ToDoApp() {
                                                     className="flex items-center justify-between w-full bg-violet-500/10 h-20 px-5 md:px-10 p-4 rounded-3xl text-sky-900 dark:text-slate-400 mb-2"
                                                 >
                                                     <div className="flex items-center gap-x-3 h-16">
-                                                        
+
                                                         {/* Toggle todo completion status (done/undone) */}
 
                                                         <span
