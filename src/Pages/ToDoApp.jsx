@@ -1,6 +1,6 @@
 import ToggleThemBtn from '../Component/ToggleThemBtn'
 import FilterToDo from '../Component/FilterToDo'
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { addToDo, toggleToDo, deleteToDo, reorderTodos } from '../Component/features/todosSlice'
 
@@ -12,6 +12,10 @@ export default function ToDoApp() {
     const todos = useSelector((state) => state.todos);
     const [text, setText] = useState("");
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }, [todos]);
 
     const filteredTodos = todos.filter(todo => {
         if (filter === "All") return true;

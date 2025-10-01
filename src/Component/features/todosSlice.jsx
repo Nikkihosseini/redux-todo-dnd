@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+const initialState = JSON.parse(localStorage.getItem("todos")) || [];
+
+
 export const todosSlice = createSlice({
     name: "todo",
-    initialState: [],
+    initialState,
     reducers: {
 
         // Todo App Feature Tracking => Add new todos
@@ -37,6 +40,10 @@ export const todosSlice = createSlice({
             const [moved] = state.splice(sourceIndex, 1);
             state.splice(destinationIndex, 0, moved);
         },
+
+        setTodos: (state, action) => {
+            return action.payload;
+        }
 
     },
 })
